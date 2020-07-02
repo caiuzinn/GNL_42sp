@@ -6,7 +6,7 @@
 /*   By: xubuntu <xubuntu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 19:54:55 by cda-silv          #+#    #+#             */
-/*   Updated: 2020/05/26 17:49:55 by xubuntu          ###   ########.fr       */
+/*   Updated: 2020/06/29 16:16:18 by xubuntu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,18 @@ size_t	ft_strlen(const char *str)
 	while (str[count])
 		count++;
 	return (count);
+}
+
+char	*ft_strdup(const char *s)
+{
+	int		i;
+	char	*dup;
+
+	i = -1;
+	if (!(dup = malloc((ft_strlen(s) + 1) * sizeof(char))))
+		return (NULL);
+	while (s[++i])
+		dup[i] = s[i];
+	dup[i] = '\0';
+	return (dup);
 }

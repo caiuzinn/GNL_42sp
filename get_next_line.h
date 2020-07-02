@@ -6,7 +6,7 @@
 /*   By: xubuntu <xubuntu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 19:52:07 by cda-silv          #+#    #+#             */
-/*   Updated: 2020/05/26 17:49:00 by xubuntu          ###   ########.fr       */
+/*   Updated: 2020/06/29 16:16:39 by xubuntu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,21 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <limits.h>
+
+# define BUFFER_SIZE 30
+# define ARG_MAX 2000
+# define OPEN_MAX 1024
+# define SEM_BARRA_N 0
+# define COM_BARRA_N 1
+# define ERROR -1
+# define END 0
+
+
+int		get_next_line(int fd, char **line);
 
 size_t	ft_strlen(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-
-int		get_next_line(int fd, char **line);
+char	*ft_strdup(const char *s);
 
 #endif
