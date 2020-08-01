@@ -6,11 +6,11 @@
 /*   By: xubuntu <xubuntu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 19:52:07 by cda-silv          #+#    #+#             */
-/*   Updated: 2020/06/29 16:16:39 by xubuntu          ###   ########.fr       */
+/*   Updated: 2020/08/01 18:10:55 by cda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
 # include <unistd.h>
@@ -18,14 +18,10 @@
 # include <fcntl.h>
 # include <limits.h>
 
-# define BUFFER_SIZE 30
-# define ARG_MAX 2000
-# define OPEN_MAX 1024
 # define SEM_BARRA_N 0
 # define COM_BARRA_N 1
 # define ERROR -1
 # define END 0
-
 
 int		get_next_line(int fd, char **line);
 
