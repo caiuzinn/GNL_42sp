@@ -6,7 +6,7 @@
 /*   By: xubuntu <xubuntu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 19:51:17 by cda-silv          #+#    #+#             */
-/*   Updated: 2020/08/01 18:06:01 by cda-silv         ###   ########.fr       */
+/*   Updated: 2020/08/01 18:30:57 by cda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int				ft_bufftoline(char **buff, char **line)
 		tmp[0] = ft_substr(buff[0], i + 1, j);
 		ft_free_null(&*buff);
 		buff[0] = tmp[0];
+		ft_free_null(&*tmp);
 		return (1);
 	}
 	*linr = ft_substr(buff[0], 0, i);
@@ -60,6 +61,8 @@ int				get_next_line(int fd, char **line)
 				buff[fd] = ft_strdup(tmp);
 			if (buff[fd] != NULL)
 				r[1] = ft_strlen(buff[fd]);
+			if (ret[1] < 0)
+				break ;
 			r[0] = ft_bufftoline(&buff[fd], *&line);
 			if (r[1] == 0)
 				return (END);
@@ -67,5 +70,6 @@ int				get_next_line(int fd, char **line)
 		if (r[0] == COM_BARRA_N)
 			return (COM_BARRA_N);
 	}
+	ft_free_null(&*line);
 	return (-1);
 }
