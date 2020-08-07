@@ -6,7 +6,7 @@
 /*   By: xubuntu <xubuntu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 19:51:17 by cda-silv          #+#    #+#             */
-/*   Updated: 2020/08/01 18:30:57 by cda-silv         ###   ########.fr       */
+/*   Updated: 2020/08/07 00:48:06 by cda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,27 @@ static	void	ft_free_null(char **str)
 
 int				ft_bufftoline(char **buff, char **line)
 {
-	int		i;
-	int		j;
-	char	*tmp[ARG_MAX];
+	long long	i;
+	long long	j;
+	char		*tmp[ARG_MAX];
 
 	i = 0;
 	while (buff[0][i] != '\n' && buff[0][i] != '\0')
 		i++;
+	*line = ft_substr(buff[0], 0, i);
 	if (buff[0][i] == '\n')
 	{
-		*line = ft_substr(buff[0], 0, i);
-		j = ft_strlen(buff[0]);
-		tmp[0] = ft_substr(buff[0], i + 1, j);
-		ft_free_null(&*buff);
-		buff[0] = tmp[0];
-		ft_free_null(&*tmp);
+		if (buff[0][i + 1] == '\0')
+			ft_free_null(&*buff);
+		else
+		{
+			j = ft_strlen(buff[0]);
+			tmp[0] = ft_substr(buff[0], i + 1, j);
+			ft_free_null(&*buff);
+			buff[0] = tmp[0];
+		}
 		return (1);
 	}
-	*linr = ft_substr(buff[0], 0, i);
 	ft_free_null(&*buff);
 	return (0);
 }
@@ -61,7 +64,7 @@ int				get_next_line(int fd, char **line)
 				buff[fd] = ft_strdup(tmp);
 			if (buff[fd] != NULL)
 				r[1] = ft_strlen(buff[fd]);
-			if (ret[1] < 0)
+			if (r[1] < 0)
 				break ;
 			r[0] = ft_bufftoline(&buff[fd], *&line);
 			if (r[1] == 0)
