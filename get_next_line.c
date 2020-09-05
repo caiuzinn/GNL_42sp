@@ -21,16 +21,34 @@ static	void	ft_free_null(char **str)
 	*str = NULL;
 }
 
+static int ft_concatena(char **line, char **buff)
+{
+	int		i;
+	int		j;
+	char	tmp[ARG_MAX];
+
+	i = 0;
+	j = 0;
+	while (line[0][i] != '\0')
+	{
+		tmp[i] = line[0][i];
+		i++;
+	}
+	ft_free_null(&*line);
+	while (buff[0][j] != '\0' && buff[0][j] != '\n')
+		tmp[i++] = buff[0][j++];
+	tmp[i] = '\0';
+	*line = ft_strdup(tmp);
+	return (j);
+}
+
 int				ft_bufftoline(char **buff, char **line)
 {
 	long long	i;
 	long long	j;
 	char		*tmp[ARG_MAX];
 
-	i = 0;
-	while (buff[0][i] != '\n' && buff[0][i] != '\0')
-		i++;
-	*line = ft_substr(buff[0], 0, i);
+	i = ft_concatena(*&line, *&buff);
 	if (buff[0][i] == '\n')
 	{
 		if (buff[0][i + 1] == '\0')
