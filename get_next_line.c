@@ -6,7 +6,7 @@
 /*   By: xubuntu <xubuntu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 19:51:17 by cda-silv          #+#    #+#             */
-/*   Updated: 2020/08/07 00:48:06 by cda-silv         ###   ########.fr       */
+/*   Updated: 2020/09/05 16:30:35 by cda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static	void	ft_free_null(char **str)
 	*str = NULL;
 }
 
-static int ft_concatena(char **line, char **buff)
+static	int		ft_concatena(char **line, char **buff)
 {
 	int		i;
 	int		j;
