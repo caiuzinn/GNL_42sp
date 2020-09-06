@@ -6,7 +6,7 @@
 /*   By: xubuntu <xubuntu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/26 19:54:55 by cda-silv          #+#    #+#             */
-/*   Updated: 2020/06/29 16:16:18 by xubuntu          ###   ########.fr       */
+/*   Updated: 2020/09/06 02:57:44 by cda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (!(sub = malloc((len + 1) * sizeof(char))))
 		return (NULL);
-	while ((i < len) && (start + i) < ft_strlen(s))
+	while ((i < len) && (start + i) < len)
 	{
 		sub[i] = s[start + i];
 		i++;
